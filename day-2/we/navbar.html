@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+            height: 200vh;
+            position: relative;
+            
+        }
+        #navbar{
+            display: flex;
+            border-bottom: 1px solid black;
+            justify-content: space-around;
+            /* background-color: whitesmoke; */
+            font-size: 30px;
+            position: fixed;
+            width: 100%;
+        }
+        #navbar>div{
+            /* border: 1px solid rebeccapurple; */
+            padding: 10px;
+            background-color: black;
+            border-radius: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        #navbar>div:hover{
+            background-color: whitesmoke;
+            color: black;
+        }
+        a:hover{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div> <a href="backend.html">Backend</a> </div>
+        <div> <a href="frontend.html">Frontend</a> </div>
+    </div>
+</body>
+</html>
