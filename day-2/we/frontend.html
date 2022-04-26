@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend</title>
+    <style>
+        *{
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        h1{
+            font-size: 40px;
+        }
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+            width: 80%;
+            margin: auto;
+            
+        }
+        #container>div{
+            /* border: 1px solid red; */
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 22px;
+            font-weight: bolder;
+            margin-top: 5px;
+            
+        }
+        p{
+            margin-top: -15px;
+            color: gray;
+        }
+        p+img{
+
+            width: 50%;
+            display: block;
+            margin: auto;
+            margin-top: -10px;
+        }
+        div>img:first-child{
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+
+<script>
+    var investorData = JSON.parse(localStorage.getItem("investorData")) 
+    console.log(investorData);
+    investorData.forEach(function(el){
+        console.log(el)
+        var cart = document.createElement("div");
+
+        var avtar = document.createElement("img");
+        avtar.setAttribute("src",el.imgUrl );
+
+        var invName = document.createElement("h3");
+        invName.innerText= el.name ;
+
+        var invPosition = document.createElement("p");
+        invPosition.innerText= el.role;
+
+        var invCompany = document.createElement("img");
+        invCompany.setAttribute("src",el.logo) ;
+
+        cart.append(avtar,invName,invPosition,invCompany);
+
+        document.querySelector("#container").append(cart);
+        
+    })
+</script>
