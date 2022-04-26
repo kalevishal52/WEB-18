@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&family=Merriweather:wght@900&family=Open+Sans&family=Poppins:wght@600;800&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <title>Sign up</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <img src="https://sso.masaischool.com/brand_dark.svg" alt="" >
+    <form id="form">
+        <h1>Sign Up</h1>
+        <label for="name">Full Name</label> <input type="text" placeholder="Enter your full name" id="name">
+        <label for="emailId">Email</label> <input type="email" placeholder="Enter email" id="emailId">
+        <label for="pass">Password</label> <input type="password" placeholder="Enter password" id="pass">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.cidunt molestias eos debitis distinctio non.</p>
+        <input type="submit" value="Sign Up" id="btn">
+        <p id="signIn">Already have an account?
+            <a href="login.html">Sign In</a> </p>
+        </form>
+    
+
+</body>
+</html>
+
+<script>
+    // DOM variables
+    var form = document.querySelector("#form") ;
+    var loginData = JSON.parse(localStorage.getItem("loginDetails")) || [] ;
+    form.addEventListener("submit",function(){
+        event.preventDefault();
+        var obj = {
+            name : form.name.value,
+            emailId : form.emailId.value,
+            password: form.pass.value,
+        };
+        loginData.push(obj);
+        console.log(loginData)
+        localStorage.setItem("loginDetails",JSON.stringify(loginData)) ; 
+    })
+</script>

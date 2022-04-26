@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="common.css">
+    <title>Sign in</title>
+    <style>
+        #forget{
+            display: flex;
+            justify-content: space-between;
+            font-size: 15px;
+        }
+        a{
+            text-decoration: none;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+        label{
+            font-size: 14px;
+        }
+        #form{
+            margin-top: 50px;
+            border-radius: 20px;
+        }
+        #google{
+            width: 100%;
+        display: block;
+        margin: auto;
+        color: black;
+        background-color: white;
+        margin-top: 50px;
+        margin-top: -15px;
+        }
+        #signin{
+            color: grey;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://sso.masaischool.com/brand_dark.svg" alt="" >
+    <form id="form">
+        <h1>Sign Up</h1>
+        <label for="emailId">Email</label> <input type="email" placeholder="Enter email" id="emailId">
+        <div id="forget">
+            <label for="pass">Password</label> 
+            <a href="">Forget Password?</a>
+        </div>
+            
+        <input type="password" placeholder="Enter password" id="pass">
+        <input type="submit" value="Sign In" id="btn">
+        <input type="submit" value="CONTINUE WITH GOOGLE" id="google">
+        <p id="signin">Don't have an account?
+            <a href="signUp.html">Sign Up</a> </p>
+        </form>
+</body>
+</html>
+
+<script>
+    // dom variables
+    var form = document.querySelector("#form") ;
+
+    // function
+    var loginInformation = JSON.parse(localStorage.getItem("loginDetails"))
+    
+    // console.log(loginInformation)
+    form.addEventListener("submit",function(){
+        event.preventDefault();
+        var fillEmail = form.emailId.value ;
+        var fillPasword = form.pass.value;
+        console.log(fillEmail,fillPasword) ;
+        var flag = false;
+        loginInformation.forEach(function(el){
+            if(fillEmail == el.emailId && fillPasword == el.password){
+                flag = true;
+            }
+        })
+        if(flag == true){
+            console.log("yes")
+            alert("login sucessful")
+        }
+        else{
+            console.log("no")
+            alert("Please Enter Correct email and password");
+        }
+        })
+    
+    
+</script>
